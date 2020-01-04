@@ -1,0 +1,19 @@
+{
+  "name": "test",
+  "version": "0.0.1",
+  "description": "",
+  "main": "animal1.js",
+  "keywords": [
+    "test"
+  ],
+  "author": "kill-real",
+  "license": "ISC",
+  "dependencies": {
+    "debug": "^4.1.1",
+    "document": "^0.4.7",
+    "kill12": "0.0.1",
+    "node-fetch": "^2.6.0",
+    "rollbar": "^2.14.4",
+    "winston": "^3.2.1"
+  }
+}

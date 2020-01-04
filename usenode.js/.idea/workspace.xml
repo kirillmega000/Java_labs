@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="14a04ce2-46a6-48f7-8350-842e8a1591dd" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="tsconfig.json" />
+        <option value="HTML4 File" />
+        <option value="JavaScript File" />
+        <option value="CSS File" />
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="JsFlowSettings">
+    <service-enabled>true</service-enabled>
+    <exe-path />
+    <other-services-enabled>true</other-services-enabled>
+    <auto-save>true</auto-save>
+  </component>
+  <component name="ProjectId" id="1TnbrzM7dXUB5ADzynqa6Wz5Bd4" />
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="javascript.nodejs.core.library.configured.version" value="12.13.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/CSS" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs_interpreter_path" value="node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="reference.settingsdialog.project.vagrant" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\programming\usenode.js\CSS" />
+      <recent name="E:\programming\usenode.js\HTML" />
+      <recent name="E:\programming\usenode.js" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\programming\usenode.js" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="JavaScript Debug.05_ex.html">
+    <configuration name="01_ex.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/CSS/01_ex.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="02_ex.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/CSS/02_ex.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="03_ex.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/CSS/03_ex.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="04_ex.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/CSS/04_ex.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="05_ex.html" type="JavascriptDebugType" temporary="true" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/CSS/05_ex.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="22_meta.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/HTML/22_meta.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="26_script.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/HTML/26_script.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="27_onfocus.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/HTML/27_onfocus.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <configuration name="ds.html" type="JavascriptDebugType" nameIsGenerated="true" uri="http://localhost:63342/usenode.js/HTML/ds.html" useBuiltInWebServerPort="true">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="JavaScript Debug.ds.html" />
+      <item itemvalue="JavaScript Debug.22_meta.html" />
+      <item itemvalue="JavaScript Debug.26_script.html" />
+      <item itemvalue="JavaScript Debug.27_onfocus.html" />
+      <item itemvalue="JavaScript Debug.01_ex.html" />
+      <item itemvalue="JavaScript Debug.02_ex.html" />
+      <item itemvalue="JavaScript Debug.03_ex.html" />
+      <item itemvalue="JavaScript Debug.04_ex.html" />
+      <item itemvalue="JavaScript Debug.05_ex.html" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JavaScript Debug.05_ex.html" />
+        <item itemvalue="JavaScript Debug.04_ex.html" />
+        <item itemvalue="JavaScript Debug.03_ex.html" />
+        <item itemvalue="JavaScript Debug.02_ex.html" />
+        <item itemvalue="JavaScript Debug.01_ex.html" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="14a04ce2-46a6-48f7-8350-842e8a1591dd" name="Default Changelist" comment="" />
+      <created>1574099009899</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1574099009899</updated>
+      <workItem from="1574099013018" duration="2377000" />
+      <workItem from="1574171855736" duration="695000" />
+      <workItem from="1574285665581" duration="600000" />
+      <workItem from="1574504049069" duration="599000" />
+      <workItem from="1574514673229" duration="599000" />
+      <workItem from="1574599285650" duration="3396000" />
+      <workItem from="1574692366925" duration="2587000" />
+      <workItem from="1574704095852" duration="1702000" />
+      <workItem from="1574799025273" duration="3762000" />
+      <workItem from="1574965379836" duration="972000" />
+      <workItem from="1574966624469" duration="661000" />
+      <workItem from="1574967305925" duration="1514000" />
+      <workItem from="1575039566080" duration="2133000" />
+      <workItem from="1575043170403" duration="829000" />
+      <workItem from="1575110777560" duration="550000" />
+      <workItem from="1575121559326" duration="155000" />
+      <workItem from="1575202318351" duration="15070000" />
+      <workItem from="1575277057546" duration="9184000" />
+      <workItem from="1575306335520" duration="4471000" />
+      <workItem from="1575394894983" duration="598000" />
+      <workItem from="1575494858945" duration="599000" />
+      <workItem from="1575568735969" duration="6244000" />
+      <workItem from="1575581297853" duration="1377000" />
+      <workItem from="1575724320134" duration="5890000" />
+      <workItem from="1575737030147" duration="10308000" />
+      <workItem from="1575754154859" duration="776000" />
+      <workItem from="1575834965275" duration="3734000" />
+      <workItem from="1575909549755" duration="599000" />
+      <workItem from="1576013709530" duration="64000" />
+      <workItem from="1576448497117" duration="15000" />
+      <workItem from="1576453649833" duration="4000" />
+      <workItem from="1576524471537" duration="53000" />
+      <workItem from="1576616855640" duration="50000" />
+      <workItem from="1577125612674" duration="18000" />
+      <workItem from="1577303723981" duration="40000" />
+      <workItem from="1577312007118" duration="3000" />
+      <workItem from="1577387986055" duration="3000" />
+      <workItem from="1577533199756" duration="598000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+</project>

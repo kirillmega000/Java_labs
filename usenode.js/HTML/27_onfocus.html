@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        function  showhelp() {
+            if(!document.getElementById('field').value){
+                document.getElementById('field').value="Введите текст"
+            }
+        }
+        function hidehelp() {
+            document.getElementById('field').value=""
+        }
+    </script>
+</head>
+<body>
+<form>
+    <input id="field" type="text" value="Введите текст" onfocus="hidehelp()" onblur="showhelp()" ><br>
+    <input type="submit" onclick="showhelp()">
+</form>
+</body>
+</html>
+ <!--функция,реализующая подсказку в текстовом поле>

@@ -1,0 +1,28 @@
+//запись по частям
+let http=require("http")
+let fs = require("fs")
+let server=http.createServer((req, res) => {
+    let answer;
+    if(req.url="/")
+
+        sendFile(new fs.ReadStream("combined.log"),res)
+
+
+})
+server.listen(3000,'127.0.0.1',() => {
+    console.log("Server running at","http://127.0.0.1:3000/")
+})
+function  sendFile(file,res) {
+    file.on("readable",write)
+    function write() {
+        let data=file.read();
+        if(data && !res.write(data)){//если буфер переполнен(нельзя записать)
+            file.removeListener("readable",write)//временно удаляется обработчик
+            res.once("drain",()=>{//когда опять можно записывать,обработчик восстанавливается
+                file.on("readable",write)
+                write()//данные отпраятся заново
+            })
+        }
+    }
+    file.on("end",()=>res.end())
+}
