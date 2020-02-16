@@ -22,9 +22,25 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab6" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
+  </component>
+  <component name="RunManager">
+    <configuration name="GenericExample5" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="GenericExample5" />
+      <module name="Generic" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.GenericExample5" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -41,5 +57,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="182" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1581438629552" />
+    <state x="740" y="279" key="FileChooserDialogImpl" timestamp="1581694475010">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="740" y="279" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581694475010" />
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom" timestamp="1581598639929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1581598639929" />
+    <state width="1899" height="274" key="GridCell.Tab.0.center" timestamp="1581598639929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1581598639929" />
+    <state width="1899" height="274" key="GridCell.Tab.0.left" timestamp="1581598639929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1581598639929" />
+    <state width="1899" height="274" key="GridCell.Tab.0.right" timestamp="1581598639929">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1899" height="274" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1581598639929" />
+    <state x="463" y="166" key="SettingsEditor" timestamp="1581860642535">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="463" y="166" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1581860642535" />
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1581860573668">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="668" y="349" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1581860573668" />
+    <state x="609" y="147" width="893" height="745" key="new project wizard" timestamp="1581860603349">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="609" y="147" width="893" height="745" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1581860603349" />
   </component>
 </project>
