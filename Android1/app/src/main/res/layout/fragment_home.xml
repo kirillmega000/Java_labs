@@ -7,7 +7,7 @@ android:padding="20dp"
 tools:context="com.example.company.maina.HomeFragment">
 
 <Button
-    android:id="@+id/button"
+    android:id="@+id/buttonRec"
     android:layout_width="86dp"
     android:layout_height="86dp"
     android:background="@drawable/button"

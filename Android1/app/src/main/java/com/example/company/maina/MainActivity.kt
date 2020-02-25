@@ -1,10 +1,14 @@
 package com.example.company.maina
 
+import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
+import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuItem
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -18,10 +22,6 @@ class MainActivity : AppCompatActivity() {
                 }
                 R.id.navigation_dashboard -> {
                     loadFragment(DashboardFragment.newInstance())
-                    return true
-                }
-                R.id.navigation_notifications -> {
-                    loadFragment(NotificationsFragment.newInstance())
                     return true
                 }
             }
@@ -38,9 +38,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+            val navigation :BottomNavigationView= findViewById(R.id.navigation)
+            navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+            loadFragment(HomeFragment.newInstance())
 
-        val navigation :BottomNavigationView= findViewById(R.id.navigation)
-        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
 }
