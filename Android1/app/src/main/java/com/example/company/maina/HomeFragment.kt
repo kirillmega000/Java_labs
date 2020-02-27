@@ -1,5 +1,8 @@
 package com.example.company.maina
 
+import android.content.Context
+import android.media.AudioManager
+import android.media.MediaPlayer
 import kotlinx.android.synthetic.main.fragment_home.*
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -7,6 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.media.MediaRecorder
+import android.net.Uri
 import android.os.Environment
 import android.util.Log
 import android.widget.Toast
@@ -63,6 +67,7 @@ class HomeFragment : Fragment() {
         fab_start_recording.setOnClickListener{
             onButton()
         }
+        fab_start_playing.setOnClickListener { playRecording(context?:return@setOnClickListener) }
     }
 
 
@@ -114,5 +119,28 @@ class HomeFragment : Fragment() {
         mediaRecorder?.release()
         initRecorder()
     }
+    fun playRecording(context: Context){
+        val path = Uri.parse(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recording"+(dir.listFiles().size-1) +".mp3")
 
+
+        val manager: AudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager
+        if(manager.isMusicActive) {
+            Toast.makeText(context, "Играет другая запись!", Toast.LENGTH_SHORT).show()
+        }else if (state){
+            Toast.makeText(context, "Идет запись!", Toast.LENGTH_SHORT).show()
+        }else if (dir.listFiles().isEmpty()){
+            Toast.makeText(context, "В папке нет записей!", Toast.LENGTH_SHORT).show()
+        }
+
+
+        else{
+            val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
+                setAudioStreamType(AudioManager.STREAM_MUSIC)
+                setDataSource(context, path)
+                prepare()
+                start()
+            }
+        }
+
+    }
 }
