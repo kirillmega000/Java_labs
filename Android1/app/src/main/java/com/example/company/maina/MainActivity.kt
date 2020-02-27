@@ -1,5 +1,6 @@
 package com.example.company.maina
 
+import android.Manifest
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -38,10 +39,22 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        checkNeededPermissions()
             val navigation :BottomNavigationView= findViewById(R.id.navigation)
             navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
             loadFragment(HomeFragment.newInstance())
 
+    }
+    private fun checkNeededPermissions() {
+        println("Requesting permission")
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
+                != PackageManager.PERMISSION_GRANTED) {
+            println("Requesting permission")
+            ActivityCompat.requestPermissions(this,
+                    arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO), 0)
+        }
     }
 
 }
