@@ -1,6 +1,7 @@
 package com.example.company.maina
 
 import android.Manifest
+import android.content.Context
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -8,6 +9,8 @@ import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
+import android.util.Log
+import android.view.KeyEvent
 import android.view.MenuItem
 
 
@@ -56,5 +59,15 @@ class MainActivity : AppCompatActivity() {
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO), 0)
         }
     }
+
+   /* override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+        if(keyCode==KeyEvent.KEYCODE_MEDIA_PLAY){
+            Log.d("ENTERED","head")
+        HomeFragment.newInstance().playRecording(this)
+
+
+        }
+        return super.onKeyDown(keyCode, event)
+    }*/
 
 }
