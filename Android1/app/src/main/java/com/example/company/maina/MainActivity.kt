@@ -18,7 +18,7 @@ class MainActivity : AppCompatActivity() {
 
     private val mOnNavigationItemSelectedListener = object : BottomNavigationView.OnNavigationItemSelectedListener {
 
-      override  fun onNavigationItemSelected(item: MenuItem): Boolean {
+        override  fun onNavigationItemSelected(item: MenuItem): Boolean {
             when (item.itemId) {
                 R.id.navigation_home -> {
                     loadFragment(HomeFragment.newInstance())
@@ -42,12 +42,11 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-
         checkNeededPermissions()
         MyLocationListener.SetUpLocationListener(this)
-            val navigation :BottomNavigationView= findViewById(R.id.navigation)
-            navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
-            loadFragment(HomeFragment.newInstance())
+        val navigation :BottomNavigationView= findViewById(R.id.navigation)
+        navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+        loadFragment(HomeFragment.newInstance())
 
     }
     private fun checkNeededPermissions() {
@@ -55,7 +54,7 @@ class MainActivity : AppCompatActivity() {
         if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE)
                 != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.RECORD_AUDIO)
-                != PackageManager.PERMISSION_GRANTED|| ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
+                != PackageManager.PERMISSION_GRANTED || ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED) {
             println("Requesting permission")
             ActivityCompat.requestPermissions(this,
@@ -63,14 +62,12 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-   /* override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        if(keyCode==KeyEvent.KEYCODE_MEDIA_PLAY){
-            Log.d("ENTERED","head")
-        HomeFragment.newInstance().playRecording(this)
-
-
-        }
-        return super.onKeyDown(keyCode, event)
-    }*/
+    /* override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
+         if(keyCode==KeyEvent.KEYCODE_MEDIA_PLAY){
+             Log.d("ENTERED","head")
+         HomeFragment.newInstance().playRecording(this)
+         }
+         return super.onKeyDown(keyCode, event)
+     }*/
 
 }

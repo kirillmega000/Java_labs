@@ -77,5 +77,3 @@ class DashboardFragment : Fragment() {
         else Net_en.setText("Disabled")
     }
 }
-
-
