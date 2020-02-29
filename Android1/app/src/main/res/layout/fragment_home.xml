@@ -11,7 +11,7 @@
         android:id="@+id/textview_sound_recorder_heading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Mikro"
+        android:text="Sound Recorder"
         android:layout_centerHorizontal="true"
         android:textSize="24dp"
         android:textColor="@color/primary_text_color"
