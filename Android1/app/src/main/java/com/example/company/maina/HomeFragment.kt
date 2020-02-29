@@ -1,5 +1,6 @@
 package com.example.company.maina
 
+import android.Manifest
 import android.content.Context
 import android.media.AudioManager
 import android.media.MediaPlayer
@@ -22,6 +23,10 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
+import android.content.Context.MODE_PRIVATE
+import android.content.pm.PackageManager
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 
 
 class HomeFragment : Fragment() {
@@ -105,6 +110,20 @@ class HomeFragment : Fragment() {
 
 
         fun startRecording() {
+            if (ContextCompat.checkSelfPermission(context?:return, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
+                var count=context?.fileList()?.size?:return
+                var fileName:String="meta"+count
+                Log.d("FileCheck",count.toString()+formatLocation())
+                this.context?.openFileOutput(fileName, MODE_PRIVATE)?.write(formatLocation().toByteArray())?:return
+                this.context?.openFileInput(fileName).use{
+                    Log.d("FileCheck",it?.readBytes()?.toString(Charsets.UTF_8))
+                }
+            } else {
+                // Request permission from the user
+                ActivityCompat.requestPermissions(activity?.parent?:return,
+                        arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE), 0)
+
+            }
             Toast.makeText(context, "Запись началась!", Toast.LENGTH_SHORT).show()
             state = true
             Log.d("ENTERED", "started")
@@ -189,6 +208,13 @@ class HomeFragment : Fragment() {
             val str = String.format("%d:%02d", minutes, seconds)
             textview_recording_time.text = str
         }
+    private fun formatLocation(): String {
+        var location=MyLocationListener.imHere
+        return if (location == null) "none" else (String.format(
+                "Coordinates: lat = %1$.4f, lon = %2$.4f",
+                location!!.getLatitude(), location!!.getLongitude())+", time="+time.gettime())
 
+
+    }
 
 }

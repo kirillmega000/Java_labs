@@ -37,17 +37,17 @@ class DashboardFragment : Fragment() {
 
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
         var locationListener:LocationListener=object:LocationListener{
-           override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
+            override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
                 if (provider == LocationManager.GPS_PROVIDER) {
                     if(status== LocationProvider.AVAILABLE)
-                    GPS_en.setText("Enabled")
+                        GPS_en.setText("Enabled")
                     else GPS_en.setText("Disabled")
                 } else if (provider == LocationManager.NETWORK_PROVIDER) {
                     if(status== LocationProvider.AVAILABLE)
                         Net_en.setText("Enabled")
                     else Net_en.setText("Disabled")
                 } }
-           override fun onLocationChanged(location: Location) {}
+            override fun onLocationChanged(location: Location) {}
 
             override fun onProviderEnabled(provider: String?) {}
 
@@ -68,13 +68,13 @@ class DashboardFragment : Fragment() {
     }
     private fun checkEnabled() {
 
-            if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-                GPS_en.setText("Enabled")
-            else GPS_en.setText("Disabled")
+        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
+            GPS_en.setText("Enabled")
+        else GPS_en.setText("Disabled")
 
-            if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
-                Net_en.setText("Enabled")
-            else Net_en.setText("Disabled")
+        if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+            Net_en.setText("Enabled")
+        else Net_en.setText("Disabled")
     }
 }
 
