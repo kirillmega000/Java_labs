@@ -2,8 +2,10 @@ package com.example.company.maina
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.design.widget.BottomNavigationView
 import android.support.v4.app.ActivityCompat
 import android.support.v4.app.Fragment
@@ -71,5 +73,9 @@ class MainActivity : AppCompatActivity() {
         }
         return super.onKeyDown(keyCode, event)
     }*/
+    fun OnCheck(){
+       val intent= Intent(this,Main2Activity::class.java)
+       startActivityForResult(intent,1)
+   }
 
 }

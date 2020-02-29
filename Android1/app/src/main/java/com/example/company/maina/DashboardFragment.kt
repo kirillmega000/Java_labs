@@ -8,6 +8,7 @@ import android.location.LocationManager
 import android.location.LocationProvider
 import android.net.Network
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -65,7 +66,12 @@ class DashboardFragment : Fragment() {
         checkEnabled()
         but_geo_set.setOnClickListener { startActivity( Intent(
                 android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
+        but_change.setOnClickListener {
+            val intent=Intent(this.context,Main2Activity::class.java)
+            startActivityForResult(intent,1)
+        }
     }
+
     private fun checkEnabled() {
 
             if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
@@ -76,6 +82,7 @@ class DashboardFragment : Fragment() {
                 Net_en.setText("Enabled")
             else Net_en.setText("Disabled")
     }
+
 }
 
 

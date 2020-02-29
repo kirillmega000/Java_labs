@@ -66,4 +66,31 @@
         android:layout_alignTop="@id/Net_en"
         android:layout_marginTop="47dp"
         android:text="Параметры геолокации" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:text="Ваши данные"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:id="@+id/text_data"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/text_data"
+        android:layout_centerInParent="true"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="52dp"
+        android:text="Данные не введены" />
+
+    <Button
+        android:id="@+id/but_change"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/text_data"
+        android:layout_marginTop="96dp"
+        android:text="изменить данные"/>
+
 </RelativeLayout>
