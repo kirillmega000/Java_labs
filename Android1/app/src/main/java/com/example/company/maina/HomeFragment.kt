@@ -93,7 +93,7 @@ class HomeFragment : Fragment() {
             mediaRecorder?.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
             mediaRecorder?.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
             mediaRecorder?.setOutputFile(output)
-         this.activity.onAc
+
         }
 
 
