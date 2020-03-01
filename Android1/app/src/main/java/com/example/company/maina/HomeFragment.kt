@@ -128,8 +128,10 @@ class HomeFragment : Fragment() {
         if (ContextCompat.checkSelfPermission(context?:return, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
             var count=context?.fileList()?.size?:return
             var fileName:String="meta"+count
+            var prefs=this.context?.getSharedPreferences("NamePrefs",MODE_PRIVATE)
+            var name:String?=prefs?.getString("name","NoName")?:"NoName"
             Log.d("FileCheck",count.toString()+formatLocation())
-            this.context?.openFileOutput(fileName, MODE_PRIVATE)?.write(formatLocation().toByteArray())?:return
+            this.context?.openFileOutput(fileName, MODE_PRIVATE)?.write(("Name=${name} "+formatLocation()).toByteArray())?:return
             this.context?.openFileInput(fileName).use{
                 Log.d("FileCheck",it?.readBytes()?.toString(Charsets.UTF_8))
             }
@@ -232,8 +234,6 @@ class HomeFragment : Fragment() {
 
     }
 
-    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        super.onActivityResult(requestCode, resultCode, data)
-    }
+
 
 }

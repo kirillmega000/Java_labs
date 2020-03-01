@@ -1,7 +1,9 @@
 package com.example.company.maina
 
+import android.content.Context
 import android.content.Context.LOCATION_SERVICE
 import android.content.Intent
+import android.content.SharedPreferences
 import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
@@ -9,6 +11,7 @@ import android.location.LocationProvider
 import android.net.Network
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -18,6 +21,7 @@ import kotlinx.android.synthetic.main.fragment_dashboard.*
 
 
 class DashboardFragment : Fragment() {
+     var prefs:SharedPreferences?=null
     private lateinit var locationManager:LocationManager
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -34,6 +38,7 @@ class DashboardFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
 
         super.onActivityCreated(savedInstanceState)
+         prefs=this.context?.getSharedPreferences("NamePrefs", Context.MODE_PRIVATE)
 
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
         var locationListener:LocationListener=object:LocationListener{
@@ -65,6 +70,19 @@ class DashboardFragment : Fragment() {
         checkEnabled()
         but_geo_set.setOnClickListener { startActivity( Intent(
                 android.provider.Settings.ACTION_LOCATION_SOURCE_SETTINGS)) }
+        but_change.setOnClickListener {
+            val intent=Intent(context,AuthActivity::class.java)
+            startActivityForResult(intent,1)
+
+        }
+    }
+
+
+
+    override fun onStart() {
+        super.onStart()
+        if(name_view.text.isEmpty())
+        name_view.text=prefs?.getString("name","Данные не введены")?:return
     }
     private fun checkEnabled() {
 
@@ -76,4 +94,15 @@ class DashboardFragment : Fragment() {
             Net_en.setText("Enabled")
         else Net_en.setText("Disabled")
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if(data==null)return
+        if(resultCode==1){
+            name_view.text=data.getStringExtra("name")
+            prefs?.edit()?.putString("name","${name_view.text}")?.apply()?:return
+        }
+    }
+
+
 }

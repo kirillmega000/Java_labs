@@ -21,21 +21,25 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Фамилия" />
+        android:hint="Фамилия"
+        android:id="@+id/edit_lastname"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Имя" />
+        android:hint="Имя"
+        android:id="@+id/edit_name"/>
 
     <EditText
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:hint="Отчество
-" />
+        android:hint="Отчество"
+        android:id="@+id/edit_secname"
+         />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Далее" />
+        android:text="Далее"
+        android:id="@+id/but_submit"/>
 </LinearLayout>

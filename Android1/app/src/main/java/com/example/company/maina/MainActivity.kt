@@ -63,7 +63,9 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+    }
 
     /* override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
          if(keyCode==KeyEvent.KEYCODE_MEDIA_PLAY){
