@@ -2,6 +2,7 @@ package com.example.company.maina
 
 import android.Manifest
 import android.content.Context
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -61,6 +62,8 @@ class MainActivity : AppCompatActivity() {
                     arrayOf(Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.RECORD_AUDIO,Manifest.permission.ACCESS_FINE_LOCATION), 0)
         }
     }
+
+
 
     /* override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
          if(keyCode==KeyEvent.KEYCODE_MEDIA_PLAY){

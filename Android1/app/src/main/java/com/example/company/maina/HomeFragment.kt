@@ -22,6 +22,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.content.Context.*
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
@@ -229,6 +230,10 @@ class HomeFragment : Fragment() {
                 "Coordinates: lat = %1$.4f, lon = %2$.4f",
                 location!!.getLatitude(), location!!.getLongitude())+", time="+time.gettime())
 
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
     }
 
 }
