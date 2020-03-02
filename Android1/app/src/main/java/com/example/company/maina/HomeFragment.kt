@@ -142,7 +142,7 @@ class HomeFragment : Fragment() {
 
         }
         Toast.makeText(context, "Запись началась!", Toast.LENGTH_SHORT).show()
-
+        fab_start_recording.setImageResource(R.drawable.ic_stop)
         state = true
         Log.d("ENTERED", "started")
         try {
@@ -166,6 +166,7 @@ class HomeFragment : Fragment() {
         mediaRecorder?.release()
         initRecorder()
         stopTimer()
+        fab_start_recording.setImageResource(R.drawable.ic_mic_black_24dp)
 
     }
 

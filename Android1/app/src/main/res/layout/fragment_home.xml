@@ -7,16 +7,7 @@
     tools:context=".MainActivity">
 
 
-    <TextView
-        android:id="@+id/textview_sound_recorder_heading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Sound Recorder"
-        android:layout_centerHorizontal="true"
-        android:textSize="24dp"
-        android:textColor="@color/primary_text_color"
-        android:layout_marginTop="@dimen/big_margin"
-        />
+
     <TextView
         android:id="@+id/textview_recording_time"
         android:layout_width="wrap_content"
