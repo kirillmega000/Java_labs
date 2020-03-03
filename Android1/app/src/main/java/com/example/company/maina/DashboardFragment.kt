@@ -8,6 +8,7 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.location.LocationProvider
+import android.net.ConnectivityManager
 import android.net.Network
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -43,20 +44,19 @@ class DashboardFragment : Fragment() {
         locationManager = activity?.getSystemService(LOCATION_SERVICE) as LocationManager
         var locationListener:LocationListener=object:LocationListener{
             override fun onStatusChanged(provider: String, status: Int, extras: Bundle) {
-                if (provider == LocationManager.GPS_PROVIDER) {
-                    if(status== LocationProvider.AVAILABLE)
-                        GPS_en.setText("Enabled")
-                    else GPS_en.setText("Disabled")
-                } else if (provider == LocationManager.NETWORK_PROVIDER) {
-                    if(status== LocationProvider.AVAILABLE)
-                        Net_en.setText("Enabled")
-                    else Net_en.setText("Disabled")
-                } }
-            override fun onLocationChanged(location: Location) {}
+                checkEnabled()
+                 }
+            override fun onLocationChanged(location: Location) {
+                checkEnabled()
+            }
 
-            override fun onProviderEnabled(provider: String?) {}
+            override fun onProviderEnabled(provider: String?) {
+                checkEnabled()
+            }
 
-            override fun onProviderDisabled(provider: String?) {}
+            override fun onProviderDisabled(provider: String?) {
+                checkEnabled()
+            }
         }
         try {
             locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
@@ -75,6 +75,12 @@ class DashboardFragment : Fragment() {
             startActivityForResult(intent,1)
 
         }
+        /*var connectivityManager:ConnectivityManager=activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        var listener:ConnectivityManager.OnNetworkActiveListener=object:ConnectivityManager.OnNetworkActiveListener{
+            override fun onNetworkActive() {
+
+            }
+        }*/
     }
 
 
@@ -86,13 +92,10 @@ class DashboardFragment : Fragment() {
     }
     private fun checkEnabled() {
 
-        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER))
-            GPS_en.setText("Enabled")
-        else GPS_en.setText("Disabled")
+        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)||locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
+            GPS_en?.setText("Enabled")?:return
+        else GPS_en?.setText("Disabled")?:return
 
-        if(locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER))
-            Net_en.setText("Enabled")
-        else Net_en.setText("Disabled")
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

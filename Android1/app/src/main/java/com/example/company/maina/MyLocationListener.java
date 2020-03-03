@@ -24,7 +24,11 @@ class MyLocationListener implements LocationListener {
                 10*1000 ,
                 10,
                 locationListener); // здесь можно указать другие более подходящие вам параметры
-
+        locationManager.requestLocationUpdates(
+                LocationManager.GPS_PROVIDER,
+                10*1000 ,
+                10,
+                locationListener);
 
         imHere = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
 

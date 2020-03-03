@@ -9,9 +9,9 @@
         android:id="@+id/tv_dashboard"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Геолокация"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:layout_centerInParent="true"/>
+        android:layout_centerInParent="true"
+        android:text="Параметры"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
         android:id="@+id/geo_gps"
@@ -66,32 +66,42 @@
         android:layout_alignTop="@id/Net_en"
         android:layout_marginTop="47dp"
         android:text="Параметры геолокации" />
+
     <TextView
+        android:id="@+id/text_data"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:text="Ваши данные"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:id="@+id/text_data"
         android:layout_centerInParent="true"
-        />
+        android:layout_marginTop="24dp"
+        android:text="Ваши данные"
+        android:textAppearance="?android:attr/textAppearanceLarge" />
 
     <TextView
+        android:id="@+id/name_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/text_data"
-        android:layout_centerInParent="true"
         android:layout_centerVertical="true"
-        android:layout_marginTop="52dp"
-        android:text=""
-        android:id="@+id/name_view"/>
+        android:layout_centerInParent="true"
+        android:layout_marginTop="78dp"
+        android:text="" />
 
     <Button
         android:id="@+id/but_change"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/text_data"
-        android:layout_marginTop="96dp"
-        android:text="изменить данные"/>
+        android:layout_marginTop="149dp"
+        android:text="изменить данные" />
+
+    <Button
+        android:id="@+id/but_net_set"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/but_geo_set"
+        android:layout_centerVertical="true"
+        android:layout_marginBottom="-60dp"
+        android:text="Параметры интернета" />
 
 </RelativeLayout>
