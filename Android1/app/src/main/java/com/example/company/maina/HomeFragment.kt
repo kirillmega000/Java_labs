@@ -70,7 +70,7 @@ class HomeFragment : Fragment() {
 
         if (dir.exists()) {
             val count = dir.listFiles().size
-            output = Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + count + ".mp3"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + count + ".mp4"
 
         }
         if (dirmeta.exists()) {
@@ -101,7 +101,7 @@ class HomeFragment : Fragment() {
 
         if (dir.exists()) {
             val count = dir.listFiles().size
-            output = Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + count + ".mp3"
+            output = Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + count + ".mp4"
             Log.d("ENTERED", "sound" + count)
         }
         if (dirmeta.exists()) {
@@ -171,7 +171,7 @@ class HomeFragment : Fragment() {
     }
 
     fun playRecording(context: Context) {
-        val path = Uri.parse(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + (dir.listFiles().size - 1) + ".mp3")
+        val path = Uri.parse(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + (dir.listFiles().size - 1) + ".mp4")
 
 
         val manager: AudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager

@@ -17,6 +17,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_dashboard.*
+import java.net.InetAddress
+import android.net.NetworkInfo
+import android.support.v4.content.ContextCompat.getSystemService
 
 
 
@@ -75,12 +78,34 @@ class DashboardFragment : Fragment() {
             startActivityForResult(intent,1)
 
         }
-        /*var connectivityManager:ConnectivityManager=activity?.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        var listener:ConnectivityManager.OnNetworkActiveListener=object:ConnectivityManager.OnNetworkActiveListener{
-            override fun onNetworkActive() {
+        CheckInternet()
+        but_net_set.setOnClickListener { startActivity(Intent(
+                android.provider.Settings.ACTION_WIRELESS_SETTINGS
+        )) }
 
-            }
-        }*/
+    }
+    fun CheckInternet(){
+        //улучшить
+        Log.d("CheckInet","enter")
+       if(isInternetAvailable(context?:return)){
+           Net_en.setText("Enabled")
+
+       }
+        else Net_en.setText("Disabled")
+    }
+    fun isInternetAvailable(ctx:Context): Boolean {
+        val connectivityManager = ctx
+                .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        return if (connectivityManager
+                        .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
+                        .getNetworkInfo(ConnectivityManager.TYPE_MOBILE)!!.state == NetworkInfo.State.CONNECTED || connectivityManager
+                        .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
+                        .getNetworkInfo(ConnectivityManager.TYPE_WIFI)!!
+                        .state == NetworkInfo.State.CONNECTED) {
+            true
+        } else {
+            false
+        }
     }
 
 

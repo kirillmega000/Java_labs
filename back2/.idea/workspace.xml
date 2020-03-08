@@ -15,9 +15,10 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../back1" />
     <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -30,14 +31,14 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="182" key="#Project_Structure" timestamp="1581430689525">
+    <state x="552" y="182" key="#Project_Structure" timestamp="1583524289886">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="552" y="182" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1581430689525" />
-    <state x="739" y="265" key="FileChooserDialogImpl" timestamp="1581438423112">
+    <state x="552" y="182" key="#Project_Structure/0.0.1920.1040@0.0.1920.1040" timestamp="1583524289886" />
+    <state x="739" y="265" key="FileChooserDialogImpl" timestamp="1583524295895">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="739" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1581438423112" />
+    <state x="739" y="265" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1583524295895" />
     <state x="668" y="349" key="com.intellij.ide.util.TipDialog" timestamp="1581430678837">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
