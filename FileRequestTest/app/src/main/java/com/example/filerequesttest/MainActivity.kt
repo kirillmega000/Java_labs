@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         checkNeededPermissions()
         Log.d("CheckSend",dir.listFiles().last().absolutePath)
-        var obv=createRequest("http://192.168.100.221:8070/upload",Environment.getExternalStorageDirectory().absolutePath+"/test/375.png").subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        var obv=createRequest("http://192.168.100.221:8070/upload",dir.listFiles().last().absolutePath).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})
 
     }
