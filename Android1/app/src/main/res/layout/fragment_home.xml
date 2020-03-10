@@ -48,8 +48,12 @@
         android:layout_alignParentRight="true"
         />
 
-
-
+    <Button
+        android:id="@+id/CheckSend"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="CheckSending"
+        />
 
 
 </RelativeLayout>

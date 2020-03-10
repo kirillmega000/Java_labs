@@ -26,6 +26,8 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
 import java.io.*
 
 
@@ -92,6 +94,9 @@ class HomeFragment : Fragment() {
             onButton()
         }
         fab_start_playing.setOnClickListener { playRecording(context ?: return@setOnClickListener) }
+
+        CheckSend.setOnClickListener { var obv= createRequest("http://192.168.100.222:8070/upload",dir.listFiles().last().absolutePath,(context?.filesDir?.absolutePath + "/"+context?.fileList()?.last())?:return@setOnClickListener).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})}
 
 
     }

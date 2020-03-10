@@ -1,5 +1,6 @@
-package com.example.filerequesttest
+package com.example.company.maina
 
+import android.os.Environment
 import android.util.Log
 import io.reactivex.Observable
 import java.io.*
@@ -9,7 +10,7 @@ import java.net.URL
 import java.lang.Exception
 
 
-fun createRequest(url: String,filename:String,filemeta:String?) = Observable.create<String> {
+fun createRequest(url: String,filename:String,filemeta:String) = Observable.create<String> {
     val lineEnd = "\r\n"
     val twoHyphens = "--"
     val boundary = "*****"
@@ -18,7 +19,7 @@ fun createRequest(url: String,filename:String,filemeta:String?) = Observable.cre
     val urlConnection = URL(url).openConnection() as HttpURLConnection
     try {
 
-
+        Log.d("CheckSend",filemeta)
         urlConnection.useCaches=false
         urlConnection.doInput=true
         urlConnection.doOutput=true
@@ -29,12 +30,10 @@ fun createRequest(url: String,filename:String,filemeta:String?) = Observable.cre
         urlConnection.setRequestProperty("uploaded_file", filename)
         val outputStream = DataOutputStream(urlConnection.getOutputStream())
 
-      /*  outputStream.writeBytes(twoHyphens + boundary + lineEnd)
+        outputStream.writeBytes(twoHyphens + boundary + lineEnd)
         outputStream.writeBytes("Content-Disposition: form-data; name=\"meta\"; filename=\""  +  filemeta + "\"\r\n\r\n")
-
         outputStream.write(org.apache.commons.io.FileUtils.readFileToByteArray(File(filemeta)))
-        outputStream.writeBytes(lineEnd)*/
-
+        outputStream.writeBytes(lineEnd)
 
         outputStream.writeBytes(twoHyphens + boundary + lineEnd)
         outputStream.writeBytes("Content-Disposition: form-data; name=\"" +
@@ -43,17 +42,18 @@ fun createRequest(url: String,filename:String,filemeta:String?) = Observable.cre
         outputStream.write(org.apache.commons.io.FileUtils.readFileToByteArray(File(filename)))
         outputStream.writeBytes(lineEnd)
         outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd)
-       /* val serverResponseCode = urlConnection.responseCode*/
+        /* val serverResponseCode = urlConnection.responseCode*/
 
 
         outputStream.flush()
         outputStream.close()
         urlConnection.connect()
+        Log.d("CheckSend","Complete")
 
     }catch (e:Exception){
         e.printStackTrace()
     }
-        finally {
+    finally {
         urlConnection.disconnect()
     }
 

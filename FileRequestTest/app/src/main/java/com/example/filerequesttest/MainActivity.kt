@@ -18,12 +18,13 @@ import java.sql.DriverManager.println
 
 class MainActivity : AppCompatActivity() {
     private val dir: File = File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         checkNeededPermissions()
         Log.d("CheckSend",dir.listFiles().last().absolutePath)
-        var obv=createRequest("http://192.168.100.221:8070/upload",dir.listFiles().last().absolutePath).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        var obv=createRequest("http://192.168.100.222:8070/upload",dir.listFiles().last().absolutePath,File("/data/user/0/com.example.company.myapplication/files")?.listFiles()?.last()?.absolutePath).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
         obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})
 
     }

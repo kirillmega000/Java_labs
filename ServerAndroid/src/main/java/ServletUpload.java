@@ -23,30 +23,12 @@ public class ServletUpload extends HttpServlet{
         req.setAttribute(Request.__MULTIPART_CONFIG_ELEMENT, multipartConfigElement);
         System.out.println("Olla");
         String file=req.getPart("file1").getSubmittedFileName().split("/")[req.getPart("file1").getSubmittedFileName().split("/").length-1];
+        String filemeta=req.getPart("meta").getSubmittedFileName().split("/")[req.getPart("meta").getSubmittedFileName().split("/").length-1];
         System.out.println(file);
+        System.out.println(filemeta);
         FileUtils.writeByteArrayToFile(new File("sounds/"+file),IOUtils.toByteArray(req.getPart("file1").getInputStream()));
-      byte [] b= IOUtils.toByteArray(req.getPart("description").getInputStream());
-      System.out.println(new String(b,"UTF-8"));
-    /*    DataInputStream in=new DataInputStream(req.getPart("file1").getInputStream());
-        FileOutputStream out=new FileOutputStream(new File("sounds/"+file));
-                bytesAvailable = in.available();
-                bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                buffer = new byte[bufferSize];
+        FileUtils.writeByteArrayToFile(new File("metas/"+filemeta),IOUtils.toByteArray(req.getPart("meta").getInputStream()));
 
-                // Считывание файла в оперативную память и запись его в соединение
-                bytesRead = in.read(buffer, 0, bufferSize);
-
-                while (bytesRead > 0) {
-                    out.write(buffer, 0, bufferSize);
-                    bytesAvailable = in.available();
-                    bufferSize = Math.min(bytesAvailable, maxBufferSize);
-                    bytesRead = in.read(buffer, 0, bufferSize);
-                }
-
-
-        out.flush();
-        out.close();
-        in.close();*/
 
     }
 }
