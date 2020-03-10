@@ -17,16 +17,14 @@ import android.util.Log
 import android.widget.Toast
 
 import java.util.*
-import android.arch.lifecycle.LiveData
-import android.arch.lifecycle.MutableLiveData
-import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModel
+
 import android.content.Context.*
-import android.content.Intent
+
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.internal.schedulers.IoScheduler
 import io.reactivex.schedulers.Schedulers
 import java.io.*
 
@@ -95,9 +93,17 @@ class HomeFragment : Fragment() {
         }
         fab_start_playing.setOnClickListener { playRecording(context ?: return@setOnClickListener) }
 
-        CheckSend.setOnClickListener { var obv= createRequest("http://192.168.100.222:8070/upload",dir.listFiles().last().absolutePath,(context?.filesDir?.absolutePath + "/"+context?.fileList()?.last())?:return@setOnClickListener).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-        obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})}
+        CheckSend.setOnClickListener {
 
+            var metaFile=("meta"+dir.listFiles().last().name.substring(9,dir.listFiles().last().name.length-4))
+            var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charsets.UTF_8)?:return@setOnClickListener
+
+            var obv=createRequest("http://192.168.100.222:8070/upload",dir.listFiles().last().absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+            obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})}
+
+
+    }
+    private fun sendFile( file:File){
 
     }
 
