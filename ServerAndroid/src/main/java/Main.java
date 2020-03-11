@@ -8,7 +8,7 @@ public class Main {
     public static void main(String []args) throws Exception{
 
         ServletUpload frontend=new ServletUpload();
-        Server server=new Server(8070);
+        Server server=new Server(8080);
         ServletContextHandler context= new ServletContextHandler(ServletContextHandler.SESSIONS);
         server.setHandler(context);
         ServletHolder serv=new ServletHolder(frontend);

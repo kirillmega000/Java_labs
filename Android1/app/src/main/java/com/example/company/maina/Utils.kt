@@ -47,7 +47,7 @@ fun createRequest(url: String,filename:String,second:String) = Observable.create
         outputStream.writeBytes("Content-Disposition: form-data; name=\"" +
                 FORM_FILE_NAME + "\"; filename=\"" + filename +  "\"\r\n\r\n")
 
-        outputStream.write(org.apache.commons.io.FileUtils.readFileToByteArray(File(filename)))
+         outputStream.write(org.apache.commons.io.FileUtils.readFileToByteArray(File(filename)))
 
 
 
@@ -59,6 +59,7 @@ fun createRequest(url: String,filename:String,second:String) = Observable.create
         outputStream.flush()
         outputStream.close()
         urlConnection.connect()
+        it.onNext("q")
 
     }catch (e:Exception){
         e.printStackTrace()

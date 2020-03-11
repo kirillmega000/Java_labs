@@ -101,8 +101,7 @@ class HomeFragment : Fragment() {
         fab_start_playing.setOnClickListener { playRecording(context ?: return@setOnClickListener) }
 
         CheckSend.setOnClickListener {
-            for(it in dir.listFiles())
-            sendFile(it)
+            sendFile(dir.listFiles().first())
 /*
             var metaFile=("meta"+dir.listFiles().last().name.substring(9,dir.listFiles().last().name.length-4))
             var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charsets.UTF_8)?:return@setOnClickListener
@@ -117,13 +116,17 @@ class HomeFragment : Fragment() {
     }
     private fun sendFile( file:File){
 
-        var metaFile=("meta"+file.name.substring(9,dir.listFiles().last().name.length-5))
+        var metaFile=("meta"+file.name.substring(9,file.name.length-4))
         var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charset.forName("UTF-8"))?:return
 
-        var obv=createRequest("http://192.168.100.222:8070/upload",file.absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-        request=obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})
-        file.delete()
-        File(context?.filesDir?.absolutePath+File.pathSeparator+metaFile).delete()
+        var obv=createRequest("http://192.168.100.222:8080/upload",file.absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        request=obv.subscribe({ file.delete()
+            File(context?.filesDir?.absolutePath+File.pathSeparator+metaFile).delete()
+            initRecorder()
+             if(!dir.listFiles().isEmpty())
+                 sendFile(dir.listFiles().first())},
+                {Log.d("CheckSend","Fail")})
+
 
     }
     private fun initRecorder() {
@@ -156,7 +159,7 @@ class HomeFragment : Fragment() {
 
     private fun startRecording() {
         if (ContextCompat.checkSelfPermission(context?:return, Manifest.permission.WRITE_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED) {
-            var count=context?.fileList()?.size?:return
+            val count = dir.listFiles().size
             var fileName:String="meta"+count
             var prefs=this.context?.getSharedPreferences("NamePrefs",MODE_PRIVATE)
             var name:String?=prefs?.getString("name","NoName")?:"NoName"
@@ -194,7 +197,7 @@ class HomeFragment : Fragment() {
         Log.d("ENTERED", "stopped")
         mediaRecorder?.stop()
         mediaRecorder?.release()
-        initRecorder()
+
         stopTimer()
         fab_start_recording.setImageResource(R.drawable.ic_mic_black_24dp)
         val path = File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + (dir.listFiles().size - 1) + ".mp4")
@@ -204,6 +207,7 @@ class HomeFragment : Fragment() {
         }
         copy.createNewFile()
         org.apache.commons.io.FileUtils.copyFile(path,copy)
+        initRecorder()
     }
 
     fun playRecording(context: Context) {

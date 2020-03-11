@@ -24,12 +24,12 @@ public class ServletUpload extends HttpServlet{
         System.out.println("Olla");
         String file=req.getPart("file1").getSubmittedFileName().split("/")[req.getPart("file1").getSubmittedFileName().split("/").length-1];
         System.out.println(file);
-        FileUtils.writeByteArrayToFile(new File("sounds/"+file),IOUtils.toByteArray(req.getPart("file1").getInputStream()));
+        FileUtils.writeByteArrayToFile(new File("sounds/recording"+(new File("sounds").listFiles().length)),IOUtils.toByteArray(req.getPart("file1").getInputStream()));
         byte [] b= IOUtils.toByteArray(new InputStreamReader(req.getPart("description").getInputStream()),"UTF-8");
         System.out.println(new String(b,"UTF-8"));
         String num=file.split("g")[1];
 
-        FileUtils.writeByteArrayToFile(new File("metas/meta"+num.substring(0,num.length()-4)+"txt"),b);
+        FileUtils.writeByteArrayToFile(new File("metas/meta"+new File("metas").listFiles().length),b);
 
     }
 }
