@@ -21,23 +21,28 @@ import java.util.*
 import android.content.Context.*
 
 import android.content.pm.PackageManager
+import android.os.FileUtils
 import android.support.v4.app.ActivityCompat
 import android.support.v4.content.ContextCompat
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.internal.schedulers.IoScheduler
 import io.reactivex.schedulers.Schedulers
 import java.io.*
+import java.nio.charset.Charset
+import java.nio.file.Files
 
 
 class HomeFragment : Fragment() {
     private var state: Boolean = false
     var mediaRecorder: MediaRecorder? = null
-
+    var request: Disposable? = null
     private var output: String? = null
     private var recordingTime: Long = 0
     private var timer = Timer()
     private val dir: File = File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/")
     private var dirmeta:File=File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/metas/")
+
     private var outfile:String?=null
     companion object {
 
@@ -63,7 +68,9 @@ class HomeFragment : Fragment() {
             val metasRepository= File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/metas/")
             // have the object build the directory structure, if needed.
             recorderDirectory.mkdirs()
+
             metasRepository.mkdirs()
+
         } catch (e: IOException) {
             e.printStackTrace()
         }
@@ -94,19 +101,31 @@ class HomeFragment : Fragment() {
         fab_start_playing.setOnClickListener { playRecording(context ?: return@setOnClickListener) }
 
         CheckSend.setOnClickListener {
-
+            for(it in dir.listFiles())
+            sendFile(it)
+/*
             var metaFile=("meta"+dir.listFiles().last().name.substring(9,dir.listFiles().last().name.length-4))
             var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charsets.UTF_8)?:return@setOnClickListener
 
             var obv=createRequest("http://192.168.100.222:8070/upload",dir.listFiles().last().absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})}
+            obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})}*/
+
+
+    }
 
 
     }
     private fun sendFile( file:File){
 
-    }
+        var metaFile=("meta"+file.name.substring(9,dir.listFiles().last().name.length-5))
+        var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charset.forName("UTF-8"))?:return
 
+        var obv=createRequest("http://192.168.100.222:8070/upload",file.absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
+        request=obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})
+        file.delete()
+        File(context?.filesDir?.absolutePath+File.pathSeparator+metaFile).delete()
+
+    }
     private fun initRecorder() {
         mediaRecorder = MediaRecorder()
 
@@ -144,7 +163,7 @@ class HomeFragment : Fragment() {
             Log.d("FileCheck",count.toString()+formatLocation())
             this.context?.openFileOutput(fileName, MODE_PRIVATE)?.write(("Name=${name} "+formatLocation()).toByteArray())?:return
             this.context?.openFileInput(fileName).use{
-                Log.d("FileCheck",it?.readBytes()?.toString(Charsets.UTF_8))
+                Log.d("FileCheck",it?.readBytes()?.toString(Charset.forName("UTF-8")))
             }
         } else {
             // Request permission from the user
@@ -178,11 +197,17 @@ class HomeFragment : Fragment() {
         initRecorder()
         stopTimer()
         fab_start_recording.setImageResource(R.drawable.ic_mic_black_24dp)
-
+        val path = File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + (dir.listFiles().size - 1) + ".mp4")
+        val copy= File (Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/metas/recording" + ".mp4")
+        if(copy.exists()){
+            copy.delete()
+        }
+        copy.createNewFile()
+        org.apache.commons.io.FileUtils.copyFile(path,copy)
     }
 
     fun playRecording(context: Context) {
-        val path = Uri.parse(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + (dir.listFiles().size - 1) + ".mp4")
+        val path = Uri.parse(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/metas/recording" +  ".mp4")
 
 
         val manager: AudioManager = context.getSystemService(Context.AUDIO_SERVICE) as AudioManager

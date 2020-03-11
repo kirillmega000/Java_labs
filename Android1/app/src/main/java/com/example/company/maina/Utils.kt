@@ -36,8 +36,11 @@ fun createRequest(url: String,filename:String,second:String) = Observable.create
         val outputStream = DataOutputStream(urlConnection.getOutputStream())
 
         outputStream.writeBytes(twoHyphens + boundary + lineEnd)
-        outputStream.writeBytes("Content-Disposition: form-data; name=\"description\"\r\n\r\n")
-        outputStream.writeBytes(second+lineEnd)
+        outputStream.writeBytes("Content-Disposition: form-data; name=\"description\""+lineEnd)
+        outputStream.writeBytes("Content-Type: text/plain; charset=utf-8\r\n\r\n")
+        var b=second.toByteArray(Charsets.UTF_8)
+        outputStream.write(b)
+        outputStream.writeBytes(lineEnd)
 
 
         outputStream.writeBytes(twoHyphens + boundary + lineEnd)
