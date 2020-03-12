@@ -87,26 +87,13 @@ class DashboardFragment : Fragment() {
     fun CheckInternet(){
         //улучшить
         Log.d("CheckInet","enter")
-       if(isInternetAvailable(context?:return)){
+       if(internet.isInternetAvailable(context?:return)){
            Net_en.setText("Enabled")
 
        }
         else Net_en.setText("Disabled")
     }
-    fun isInternetAvailable(ctx:Context): Boolean {
-        val connectivityManager = ctx
-                .getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-        return if (connectivityManager
-                        .getNetworkInfo(ConnectivityManager.TYPE_MOBILE) != null && connectivityManager
-                        .getNetworkInfo(ConnectivityManager.TYPE_MOBILE)!!.state == NetworkInfo.State.CONNECTED || connectivityManager
-                        .getNetworkInfo(ConnectivityManager.TYPE_WIFI) != null && connectivityManager
-                        .getNetworkInfo(ConnectivityManager.TYPE_WIFI)!!
-                        .state == NetworkInfo.State.CONNECTED) {
-            true
-        } else {
-            false
-        }
-    }
+
 
 
 

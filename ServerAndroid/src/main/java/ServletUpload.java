@@ -19,17 +19,23 @@ public class ServletUpload extends HttpServlet{
     private int maxBufferSize = 1*1024*1024;
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        MultipartConfigElement multipartConfigElement = new MultipartConfigElement((String)null);
-        req.setAttribute(Request.__MULTIPART_CONFIG_ELEMENT, multipartConfigElement);
-        System.out.println("Olla");
-        String file=req.getPart("file1").getSubmittedFileName().split("/")[req.getPart("file1").getSubmittedFileName().split("/").length-1];
-        System.out.println(file);
-        FileUtils.writeByteArrayToFile(new File("sounds/recording"+(new File("sounds").listFiles().length)),IOUtils.toByteArray(req.getPart("file1").getInputStream()));
-        byte [] b= IOUtils.toByteArray(new InputStreamReader(req.getPart("description").getInputStream()),"UTF-8");
-        System.out.println(new String(b,"UTF-8"));
-        String num=file.split("g")[1];
+        try {
+            MultipartConfigElement multipartConfigElement = new MultipartConfigElement((String) null);
+            req.setAttribute(Request.__MULTIPART_CONFIG_ELEMENT, multipartConfigElement);
+            System.out.println("Olla");
+            String file = req.getPart("file1").getSubmittedFileName().split("/")[req.getPart("file1").getSubmittedFileName().split("/").length - 1];
+            System.out.println(file);
+            FileUtils.writeByteArrayToFile(new File("sounds/recording" + (new File("sounds").listFiles().length)+".mp4"), IOUtils.toByteArray(req.getPart("file1").getInputStream()));
+            byte[] b = IOUtils.toByteArray(new InputStreamReader(req.getPart("description").getInputStream()), "UTF-8");
+            System.out.println(new String(b, "UTF-8"));
+            String num = file.split("g")[1];
 
-        FileUtils.writeByteArrayToFile(new File("metas/meta"+new File("metas").listFiles().length),b);
+            FileUtils.writeByteArrayToFile(new File("metas/meta" + new File("metas").listFiles().length+".txt"), b);
+            resp.setStatus(HttpServletResponse.SC_OK);
+        }
+        catch (Exception e){
+resp.setStatus(HttpServletResponse.SC_BAD_GATEWAY);
+        }
 
     }
 }

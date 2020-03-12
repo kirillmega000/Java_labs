@@ -8,6 +8,7 @@ import java.net.HttpURLConnection
 import java.net.URL
 
 import java.lang.Exception
+import java.lang.RuntimeException
 
 
 fun createRequest(url: String,filename:String,second:String) = Observable.create<String> {
@@ -55,11 +56,16 @@ fun createRequest(url: String,filename:String,second:String) = Observable.create
         outputStream.writeBytes(twoHyphens + boundary + twoHyphens + lineEnd)
         val serverResponseCode = urlConnection.responseCode
 
-
+      var resp=urlConnection.responseCode
         outputStream.flush()
         outputStream.close()
         urlConnection.connect()
-        it.onNext("q")
+        if (resp==200){
+            it.onNext("q")
+        }
+        else {
+            it.onError(RuntimeException("Problem caused"))
+        }
 
     }catch (e:Exception){
         e.printStackTrace()

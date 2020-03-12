@@ -100,19 +100,13 @@ class HomeFragment : Fragment() {
         }
         fab_start_playing.setOnClickListener { playRecording(context ?: return@setOnClickListener) }
 
-        CheckSend.setOnClickListener {
-            sendFile(dir.listFiles().first())
-/*
-            var metaFile=("meta"+dir.listFiles().last().name.substring(9,dir.listFiles().last().name.length-4))
-            var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charsets.UTF_8)?:return@setOnClickListener
-
-            var obv=createRequest("http://192.168.100.222:8070/upload",dir.listFiles().last().absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
-            obv.subscribe({Log.d("CheckSend","Success")},{Log.d("CheckSend","Fail")})}*/
+        sending()
 
 
     }
-
-
+    private  fun sending(){
+        if(dir.listFiles().isNotEmpty()&&(internet.isInternetAvailable(context)))
+            sendFile(dir.listFiles().first())
     }
     private fun sendFile( file:File){
 
@@ -208,6 +202,7 @@ class HomeFragment : Fragment() {
         copy.createNewFile()
         org.apache.commons.io.FileUtils.copyFile(path,copy)
         initRecorder()
+        sending()
     }
 
     fun playRecording(context: Context) {
