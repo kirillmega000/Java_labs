@@ -16,7 +16,8 @@ class Recording(val title: String, val context: Context):Item(){
             RecordingRepository.playRecording(context, title )
         }
         val b:Boolean=RecordingRepository.checkSend(context,title)
-        if(b) viewHolder.itemView.send_image.setImageResource(R.drawable.ic_done_black_24dp)
+        if(b==true) {
+            viewHolder.itemView.send_image.setImageResource(R.drawable.ic_done_black_24dp)}
     }
 
     override fun getLayout(): Int {

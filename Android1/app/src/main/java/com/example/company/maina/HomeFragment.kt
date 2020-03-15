@@ -87,7 +87,7 @@ class HomeFragment : Fragment() {
         }
 
 
-
+        sending()
 
         mediaRecorder = MediaRecorder()
 
@@ -100,14 +100,14 @@ class HomeFragment : Fragment() {
         }
 
 
-        sending()
+
 
 
     }
     private  fun sending(){
         var files=dir.listFiles().filter { file -> var metaFile=("meta"+file.name.substring(9,file.name.length-4))
             this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charset.forName("UTF-8"))?.contains("false")?:false }
-        if(files.isNotEmpty())
+        if(files.isNotEmpty()&&internet.isInternetAvailable(context))
        for(it in files)
            sendFile(it)
     }
@@ -117,7 +117,7 @@ class HomeFragment : Fragment() {
         var info=this?.context?.openFileInput(metaFile)?.readBytes()?.toString(Charset.forName("UTF-8"))?:return
 
         Log.d("CheckGovno",metaFile)
-        if(info.contains("true"))info="true"
+        Log.d("CheckGovno",info)
         var obv=createRequest("http://192.168.100.222:8080/upload",file.absolutePath,info).subscribeOn(Schedulers.io()).observeOn(AndroidSchedulers.mainThread())
 
         request=obv.subscribe({

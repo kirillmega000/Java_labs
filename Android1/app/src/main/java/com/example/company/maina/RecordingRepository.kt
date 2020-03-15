@@ -44,9 +44,10 @@ class RecordingRepository{
             var metaFile=("meta"+title.substring(9,title.length-4))
             var send:String
             send=context.openFileInput(metaFile).readBytes().toString(Charset.forName("UTF-8"))
-            Log.d("SendingMethod",send)
-            if(send.contains("true")) return true
-            else return false
+            Log.d("SendingMethod",send.split(";")[2].split(":")[1])
+            if(send.split(";")[2].split(":")[1].equals("false")) return false
+            else return true
+
         }
     }
 
