@@ -63,6 +63,16 @@ class HomeFragment : Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         try {
+            this.context?.openFileInput("meta0").use {
+                Log.d("FileCheck", it?.readBytes()?.toString(Charset.forName("UTF-8")))
+            }
+        } catch (e:Exception){
+            if(dir.listFiles().isNotEmpty())
+            for(it in dir.listFiles())
+                it.delete()
+        }
+
+        try {
             // create a File object for the parent directory
             val recorderDirectory = File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/")
             val metasRepository= File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/metas/")
