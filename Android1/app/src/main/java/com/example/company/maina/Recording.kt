@@ -13,7 +13,11 @@ class Recording(val title: String, val context: Context):Item(){
     override fun bind(viewHolder: ViewHolder, position: Int) {
         viewHolder.itemView.recording_title_textview.text = title
         viewHolder.itemView.recording_image.setOnClickListener {
-            RecordingRepository.playRecording(context, title )
+            try {
+                RecordingRepository.playRecording(context, title)
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
         }
         val b:Boolean=RecordingRepository.checkSend(context,title)
         if(b==true) {

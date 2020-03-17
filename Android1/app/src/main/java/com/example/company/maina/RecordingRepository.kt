@@ -16,7 +16,7 @@ class RecordingRepository{
     companion object {
         @Volatile
         private var instance: RecordingRepository? = null
-
+        var mediaPlayer: MediaPlayer?=null
         fun getInstance() =
             instance ?: synchronized(this) {
                 instance ?: RecordingRepository().also { instance = it }
@@ -31,7 +31,7 @@ class RecordingRepository{
             if(manager.isMusicActive) {
                 Toast.makeText(context, "Another recording is just playing! Wait until it's finished!", Toast.LENGTH_SHORT).show()
             }else{
-                val mediaPlayer: MediaPlayer? = MediaPlayer().apply {
+                mediaPlayer= MediaPlayer().apply {
                     setAudioStreamType(AudioManager.STREAM_MUSIC)
                     setDataSource(context, path)
                     prepare()

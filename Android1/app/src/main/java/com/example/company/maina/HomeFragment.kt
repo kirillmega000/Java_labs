@@ -166,8 +166,12 @@ class HomeFragment : Fragment() {
 
 
     fun onButton() {
-        if (state) stopRecording()
-        else startRecording()
+        try {
+            if (state) stopRecording()
+            else startRecording()
+        }catch (e:Exception ) {
+            e.printStackTrace()
+        }
 
     }
 
@@ -196,6 +200,7 @@ class HomeFragment : Fragment() {
             println("Starting recording!")
             mediaRecorder?.prepare()
             mediaRecorder?.start()
+            state = true
             startTimer()
         } catch (e: IllegalStateException) {
             e.printStackTrace()
@@ -211,7 +216,7 @@ class HomeFragment : Fragment() {
         Log.d("ENTERED", "stopped")
         mediaRecorder?.stop()
         mediaRecorder?.release()
-
+        state = false
         stopTimer()
         fab_start_recording.setImageResource(R.drawable.ic_mic_black_24dp)
         val path = File(Environment.getExternalStorageDirectory().absolutePath + "/soundrecorder/recordings/recording" + (dir.listFiles().size - 1) + ".mp4")
@@ -261,6 +266,11 @@ class HomeFragment : Fragment() {
                 "Coordinates: lat = %1$.4f, lon = %2$.4f",
                 location!!.getLatitude(), location!!.getLongitude())+", time="+time.gettime())
 
+    }
+
+    override fun onPause() {
+
+        super.onPause()
     }
 
 
