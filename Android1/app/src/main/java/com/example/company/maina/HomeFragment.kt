@@ -269,7 +269,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onPause() {
-
+      if(state) stopRecording()
         super.onPause()
     }
 

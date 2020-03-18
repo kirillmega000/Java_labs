@@ -42,7 +42,7 @@ public class ServletUpload extends HttpServlet{
             catch (Exception e){
                 System.out.println("dir exists");
             }
-            FileUtils.writeByteArrayToFile(new File("recorder/"+name+"/sounds/"+file),IOUtils.toByteArray(req.getPart("file1").getInputStream()));
+            FileUtils.riteByteArrayToFile(new File("recorder/"+name+"/sounds/"+file),IOUtils.toByteArray(req.getPart("file1").getInputStream()));
             System.out.println(new String(b,"UTF-8"));
             String num=file.split("g")[1];
 
