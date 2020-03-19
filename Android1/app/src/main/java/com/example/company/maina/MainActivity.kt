@@ -83,7 +83,7 @@ class MainActivity : AppCompatActivity() {
 
 
      override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-         if(keyCode==KeyEvent.KEYCODE_HEADSETHOOK){
+         if(keyCode==KeyEvent.KEYCODE_HEADSETHOOK||keyCode==KeyEvent.KEYCODE_MEDIA_PLAY||keyCode==KeyEvent.KEYCODE_MEDIA_PAUSE){
              Log.d("ENTERED","head")
 
                 if(frag.equals("home")) {
