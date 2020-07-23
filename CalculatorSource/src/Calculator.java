@@ -7,7 +7,53 @@ public class Calculator {
     public static void main(String[] args) throws ScriptException {
         Scanner sc=new Scanner(System.in);
             String expression = sc.nextLine();
-            System.out.println(primalSequence(expression));
+            System.out.println(complicatedSequence(expression));
+    }
+     public static String complicatedSequence(String seq){
+        int maxn=countMaxPriority(seq),n=0;
+        String prevseq;
+        int n1=0,n2=0;
+
+        for(int i=maxn;i>0;i--){
+            for(int j=0;j<seq.length();j++){
+                if(seq.charAt(j)=='('){
+                    n += 1;
+                    if(n==i){
+                        n1=j;
+                    }
+                }
+                else if(seq.charAt(j)==')'){
+                    if(n==i){
+                        n2=j;
+                        prevseq=primalSequence(seq.substring(n1+1,n2));
+                        seq=seq.replace(seq.substring(n1,n2+1),prevseq);
+                        j=n1;
+                    }
+                    n -= 1;
+                }
+            }
+            n=0;
+            System.out.println(seq);
+        }
+
+
+
+
+        return primalSequence(seq);
+     }
+    private static int countMaxPriority(String seq){//поиск максимального приоритета операции(в скобочках)
+        int n = 0;
+        int maxn = 0;
+        for(int i=0;i<seq.length();i++){
+            if(seq.charAt(i)=='('){
+                n += 1;
+                if(n>maxn) maxn=n;
+            }
+            else if(seq.charAt(i)==')'){
+                n -= 1;
+            }
+        }
+        return maxn;
     }
      private static String primalSequence(String seq){//парсинг элементарного выражения(без скобок)
         int i=0;
