@@ -166,13 +166,16 @@ class HomeFragment : Fragment() {
 
 
     fun onButton() {
+        fab_start_recording.isClickable=false
         try {
             if (state) stopRecording()
             else startRecording()
         }catch (e:Exception ) {
             e.printStackTrace()
         }
-
+        finally {
+            fab_start_recording.isClickable=true
+        }
     }
 
 
