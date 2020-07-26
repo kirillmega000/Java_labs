@@ -3,6 +3,8 @@ package com.example.simplecalculator
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.viewpager.widget.ViewPager
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -10,66 +12,15 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        buttonZero.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"0"
-        }
-        buttonOne.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"1"
-        }
-        buttonTwo.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"2"
-        }
-        buttonThree.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"3"
-        }
-        buttonFour.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"4"
-        }
-        buttonFive.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"5"
-        }
-        buttonSix.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"6"
-        }
-        buttonSeven.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"7"
-        }
-        buttonEight.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"8"
-        }
-        buttonNine.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"9"
-        }
-        buttonDivide.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"/"
-        }
-        buttonMultiply.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"*"
-        }
-        buttonSubtract.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"-"
-        }
-        buttonAdd.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"+"
-        }
-        buttonDot.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"."
-        }
-        buttonClear.setOnClickListener {
-            infoTextView.text=""
-        }
-        buttonBeginBrace.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"("
-        }
-        buttonEndBrace.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+")"
-        }
-        buttonEqual.setOnClickListener {
-            editText.setText(Calculator.complicatedSequence(infoTextView.text.toString()))
-        }
-        buttonPow.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"^"
-        }
+        var viewpager: ViewPager = findViewById(R.id.viewpager)//настройка TabLayout с помощью ViewPager
+        setupViewAdapter(viewpager)
+        var tablayout: TabLayout = findViewById(R.id.sliding_tabs)
+        tablayout.setupWithViewPager(viewpager)
     }
-
+    private fun setupViewAdapter(viewPager: ViewPager){//Добавление фрагментов в ViewPager
+        var viewpageradapter=ViewPagerAdapter(this,supportFragmentManager)
+        viewpageradapter.addFragment(Fragment_main.newInstance(),"Главная")
+        viewpageradapter.addFragment(Fragment_history.newInstance(),"История")
+        viewPager.adapter=viewpageradapter
+    }
 }

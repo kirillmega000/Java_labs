@@ -1,6 +1,6 @@
 package com.example.simplecalculator;
 
-public class Pair {
+public class Pair {//пара int/String
     int num;
     String seq;
     Pair(int num,String seq){
