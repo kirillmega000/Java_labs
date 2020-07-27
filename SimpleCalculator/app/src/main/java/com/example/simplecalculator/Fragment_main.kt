@@ -1,10 +1,14 @@
 package com.example.simplecalculator
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.LinearLayout
+import android.widget.TextView
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.fragment_history.*
 import kotlinx.android.synthetic.main.fragment_main.*
 
 class Fragment_main:Fragment(){//фрагмент для рассчета
@@ -81,6 +85,9 @@ class Fragment_main:Fragment(){//фрагмент для рассчета
         }
         buttonEqual.setOnClickListener {
             editText.setText(Calculator.complicatedSequence(infoTextView.text.toString()))
+            SingletonList.getInstance()
+                .add(infoTextView.text.toString() + "=" + editText.text.toString())
+            Log.d("CheckHistory", SingletonList.getInstance()[0])
         }
         buttonPow.setOnClickListener {
             infoTextView.text=infoTextView.text.toString()+"^"
