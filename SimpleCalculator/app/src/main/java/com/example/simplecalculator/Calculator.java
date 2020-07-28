@@ -88,7 +88,8 @@ public class Calculator {
                 i=fin.num;
             }
         }
-
+        if(seq.split("\\.")[1].equals("0"))
+           seq=seq.split("\\.")[0];
         return seq;
     }
      private static Pair binaryOperation(String seq,char op,int i){

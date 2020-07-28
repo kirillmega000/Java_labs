@@ -85,12 +85,18 @@ class Fragment_main:Fragment(){//фрагмент для рассчета
         }
         buttonEqual.setOnClickListener {
             editText.setText(Calculator.complicatedSequence(infoTextView.text.toString()))
-            SingletonList.getInstance()
+            if(editText.text.toString()!="Ошибка в выражении")
+            SingletonList.getInstance()//Использование листа-синглтона для соххраненения истории выражений и прокидывания в другой фрагмент
                 .add(infoTextView.text.toString() + "=" + editText.text.toString())
-            Log.d("CheckHistory", SingletonList.getInstance()[0])
         }
         buttonPow.setOnClickListener {
             infoTextView.text=infoTextView.text.toString()+"^"
         }
+
+    }
+    public fun setTextOnInfo(text:String){//метод для загрузки выражения из фрагмента истории
+        // (из фрагмента истории через ссылку на главную активность в viewpager сменяется фрагмент,запускается этот метод через адаптер)
+        infoTextView.text=text.split("=")[0]
+        editText.setText(text.split("=")[1])
     }
 }

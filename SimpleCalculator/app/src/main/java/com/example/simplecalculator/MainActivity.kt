@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         var tablayout: TabLayout = findViewById(R.id.sliding_tabs)
         tablayout.setupWithViewPager(viewpager)
         viewpager.setOnPageChangeListener(object:ViewPager.OnPageChangeListener{
-            override fun onPageSelected(position: Int) {
+            override fun onPageSelected(position: Int) {//чтобы при смене фрагмента на фрагмент истории из SingletonList загружались выражения
                     val frag=viewpageradapter.getItem(position)
                     if(frag is Fragment_history)
                         frag.OnChoose()
@@ -43,5 +43,12 @@ class MainActivity : AppCompatActivity() {
         viewpageradapter.addFragment(Fragment_main.newInstance(),"Главная")
         viewpageradapter.addFragment(Fragment_history.newInstance(),"История")
         viewPager.adapter=viewpageradapter
+    }
+    public fun changeToMain(num:String){//смена фрагмента на главный и вызов его метода
+        viewpager.setCurrentItem(0)
+        var frag=viewpageradapter.getItem(0)
+        if(frag is Fragment_main)
+            frag.setTextOnInfo(num)
+
     }
 }

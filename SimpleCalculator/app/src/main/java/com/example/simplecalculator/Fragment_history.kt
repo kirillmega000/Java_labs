@@ -9,7 +9,9 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.marginBottom
 import androidx.fragment.app.Fragment
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.fragment_history.*
+import kotlinx.android.synthetic.main.fragment_main.*
 
 class Fragment_history:Fragment(){//фрагмент с историей операций
     companion object{
@@ -31,6 +33,16 @@ class Fragment_history:Fragment(){//фрагмент с историей опе�
         for(i in SingletonList.getInstance()){
             Log.d("CheckHistory",i)
             var view: TextView = TextView(context)
+            view.setOnClickListener { v->
+                if(v is TextView) {
+                    var s= v.text.toString()
+                    var activity=activity//смена фраггмента на главный через метод главной активити
+                    if(activity is MainActivity)
+                        activity.changeToMain(s)
+
+                }
+
+            }
             view.textSize=30.0F
             view.setText(i)
             view.layoutParams=layoutParams
