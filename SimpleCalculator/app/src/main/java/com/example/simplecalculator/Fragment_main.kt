@@ -29,59 +29,61 @@ class Fragment_main:Fragment(){//фрагмент для рассчета
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {//забинживание кнопок
         super.onActivityCreated(savedInstanceState)
+        infoTextView.showSoftInputOnFocus=false//чтобы не выводилась андроидовская клава при клике
+        buttonClean.text="<-"
         buttonZero.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"0"
+            addSign("0",infoTextView.selectionStart)
         }
         buttonOne.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"1"
+            addSign("1",infoTextView.selectionStart)
         }
         buttonTwo.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"2"
+            addSign("2",infoTextView.selectionStart)
         }
         buttonThree.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"3"
+            addSign("3",infoTextView.selectionStart)
         }
         buttonFour.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"4"
+            addSign("4",infoTextView.selectionStart)
         }
         buttonFive.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"5"
+            addSign("5",infoTextView.selectionStart)
         }
         buttonSix.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"6"
+            addSign("6",infoTextView.selectionStart)
         }
         buttonSeven.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"7"
+            addSign("7",infoTextView.selectionStart)
         }
         buttonEight.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"8"
+            addSign("8",infoTextView.selectionStart)
         }
         buttonNine.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"9"
+            addSign("9",infoTextView.selectionStart)
         }
         buttonDivide.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"/"
+            addSign("/",infoTextView.selectionStart)
         }
         buttonMultiply.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"*"
+            addSign("*",infoTextView.selectionStart)
         }
         buttonSubtract.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"-"
+            addSign("-",infoTextView.selectionStart)
         }
         buttonAdd.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"+"
+            addSign("+",infoTextView.selectionStart)
         }
         buttonDot.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"."
+            addSign(".",infoTextView.selectionStart)
         }
         buttonClear.setOnClickListener {
-            infoTextView.text=""
+            infoTextView.setText("")
         }
         buttonBeginBrace.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"("
+            addSign("(",infoTextView.selectionStart)
         }
         buttonEndBrace.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+")"
+            addSign(")",infoTextView.selectionStart)
         }
         buttonEqual.setOnClickListener {
             editText.setText(Calculator.complicatedSequence(infoTextView.text.toString()))
@@ -90,13 +92,22 @@ class Fragment_main:Fragment(){//фрагмент для рассчета
                 .add(infoTextView.text.toString() + "=" + editText.text.toString())
         }
         buttonPow.setOnClickListener {
-            infoTextView.text=infoTextView.text.toString()+"^"
+            addSign("^",infoTextView.selectionStart)
         }
-
+        buttonClean.setOnClickListener {
+            val pos=infoTextView.selectionStart
+            if(pos!=0){
+            infoTextView.setText(infoTextView.text.toString().removeRange(pos-1,pos))
+            infoTextView.setSelection(pos-1)}
+        }
     }
     public fun setTextOnInfo(text:String){//метод для загрузки выражения из фрагмента истории
         // (из фрагмента истории через ссылку на главную активность в viewpager сменяется фрагмент,запускается этот метод через адаптер)
-        infoTextView.text=text.split("=")[0]
+        infoTextView.setText(text.split("=")[0])
         editText.setText(text.split("=")[1])
+    }
+    private fun addSign(sign:String,position:Int){//добавление символа в строку с учетом расположения курсора
+        infoTextView.setText(infoTextView.text.toString().substring(0,position)+sign+infoTextView.text.toString().substring(position,infoTextView.text.toString().length))
+        infoTextView.setSelection(position+1)
     }
 }
