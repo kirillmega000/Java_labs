@@ -22,6 +22,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -59,6 +60,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="760" y="406" width="408" height="237" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1920.1040@0.0.1920.1040" timestamp="1595604279896" />
+    <state x="744" y="276" key="FileChooserDialogImpl" timestamp="1596635295439">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="744" y="276" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1596635295439" />
     <state width="1882" height="268" key="GridCell.Tab.0.bottom" timestamp="1595519615148">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -75,10 +80,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1882" height="268" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1595519615148" />
-    <state x="660" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1595604269612">
+    <state x="660" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1596635264415">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="660" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1595604269612" />
+    <state x="660" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596635264415" />
+    <state x="608" y="141" key="new project wizard" timestamp="1596635318771">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="608" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1596635318771" />
     <state x="620" y="242" key="run.anything.popup" timestamp="1595498900960">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
