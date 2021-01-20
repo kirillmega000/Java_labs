@@ -124,9 +124,13 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1882" height="335" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1601836284567" />
-    <state x="661" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1605196239972">
+    <state x="661" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1606422681047">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="661" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1605196239972" />
+    <state x="661" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1606422681047" />
+    <state x="609" y="147" key="new project wizard" timestamp="1606422840046">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="609" y="147" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1606422840046" />
   </component>
 </project>

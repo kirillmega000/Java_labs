@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="290d06f9-c50f-49f0-89b0-0d5d19dc75cf" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1kqKmTbu8nZjYlfvfaOWNQkYVKh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager" selected="Application.Zadanie4">
+    <configuration name="Zadanie1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie1" />
+      <module name="Module1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie2" />
+      <module name="Module1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie3" />
+      <module name="Module1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Zadanie4" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Zadanie4" />
+      <module name="Module1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
+      <module name="Module1" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType" factoryName="Kotlin script">
+      <module name="Module1" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Zadanie4" />
+        <item itemvalue="Application.Zadanie3" />
+        <item itemvalue="Application.Zadanie2" />
+        <item itemvalue="Application.Zadanie1" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="290d06f9-c50f-49f0-89b0-0d5d19dc75cf" name="Default Changelist" comment="" />
+      <created>1606422840362</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1606422840362</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="741" y="262" key="FileChooserDialogImpl" timestamp="1607870106335">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="741" y="262" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1607870106335" />
+    <state width="1876" height="335" key="GridCell.Tab.0.bottom" timestamp="1607965620839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620839" />
+    <state width="1876" height="335" key="GridCell.Tab.0.center" timestamp="1607965620838">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620838" />
+    <state width="1876" height="335" key="GridCell.Tab.0.left" timestamp="1607965620838">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620838" />
+    <state width="1876" height="335" key="GridCell.Tab.0.right" timestamp="1607965620838">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620838" />
+    <state width="1876" height="335" key="GridCell.Tab.1.bottom" timestamp="1607965620839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.1.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620839" />
+    <state width="1876" height="335" key="GridCell.Tab.1.center" timestamp="1607965620839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.1.center/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620839" />
+    <state width="1876" height="335" key="GridCell.Tab.1.left" timestamp="1607965620839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.1.left/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620839" />
+    <state width="1876" height="335" key="GridCell.Tab.1.right" timestamp="1607965620839">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1876" height="335" key="GridCell.Tab.1.right/0.0.1920.1040@0.0.1920.1040" timestamp="1607965620839" />
+    <state x="661" y="350" key="com.intellij.ide.util.TipDialog" timestamp="1607870052159">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="661" y="350" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1607870052159" />
+    <state x="606" y="141" key="new project wizard" timestamp="1607870108441">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="606" y="141" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1607870108441" />
+  </component>
+</project>
