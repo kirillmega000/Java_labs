@@ -1,0 +1,4 @@
+Заработало,когды:
+-mvn clean package spring-boot:repackage ,а не mvn clean package
+-Java version 1.8 в pom.xml
+-указал версию spring-boot-maven-plugin

@@ -37,7 +37,7 @@ public class LinkServer {
         stmt.executeUpdate();
     }
     public void show() throws IOException,SQLException{
-        String  sql = "SELECT  * FROM PERSON";
+        String  sql = "SELECT  * FROM    PERSON";
         PreparedStatement  stmt = con.prepareStatement(sql);
         ResultSet rs = stmt.executeQuery();
         int n=0;
