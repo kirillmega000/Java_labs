@@ -1,9 +1,20 @@
-package com.example.tryingspring.proj1;
+package com.proj1Spring.models;
 
+
+
+import javax.persistence.*;
+
+@Entity
 public class Person {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int id;
+
     private String name;
     private int size;
     private String place;
+
+    public Person(){}
 
     public Person(String name,int size,String place){
         this.name=name;
@@ -32,5 +43,9 @@ public class Person {
 
     public void setPlace(String place) {
         this.place = place;
+    }
+
+    public int getId() {
+        return id;
     }
 }

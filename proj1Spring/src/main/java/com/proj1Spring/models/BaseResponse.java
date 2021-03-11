@@ -1,4 +1,4 @@
-package com.example.tryingspring.proj1;
+package com.proj1Spring.models;
 public class BaseResponse {
 
     private final String status;
