@@ -2,10 +2,12 @@ package com.proj1Spring.models;
 
 
 
+import org.springframework.hateoas.RepresentationModel;
+
 import javax.persistence.*;
 
 @Entity
-public class Person {
+public class Person extends RepresentationModel<Person> {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;

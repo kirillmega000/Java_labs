@@ -1,10 +1,11 @@
 package com.proj1Spring.models;
-public class BaseResponse {
+import org.springframework.hateoas.RepresentationModel;
+public class BaseResponse extends RepresentationModel<BaseResponse> {
 
     private final String status;
     private final Integer code;
 
-    public BaseResponse(String status, Integer code) {
+    public BaseResponse(String status, Integer code)  {
         this.status = status;
         this.code = code;
     }
