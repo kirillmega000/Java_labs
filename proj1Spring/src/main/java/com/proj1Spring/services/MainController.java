@@ -15,9 +15,7 @@ import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.*;
 public class MainController {
     @Autowired
     private PersonRepository personRepository;
-    Link allLink=linkTo(MainController.class).withRel("allPerson");
-    Link oneLink=linkTo(methodOn(MainController.class).getOne(1)).withRel("onePerson");
-    Link addLink=linkTo(MainController.class).slash("add").withRel("add");
+
     @GetMapping("/getOne")
     public Person getOne(@RequestParam(value = "id") int id) {
         Person person=personRepository.findById(id).get();
